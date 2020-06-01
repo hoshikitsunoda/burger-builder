@@ -2,7 +2,7 @@ import React, { memo, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 
 import classes from './Modal.css'
-import Aux from '../../../hoc/Aux'
+import Aux from '../../../hoc/Aux/Aux'
 import Backdrop from '../Backdrop/Backdrop'
 
 const modal = memo(
