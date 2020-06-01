@@ -7,6 +7,15 @@ import Backdrop from '../Backdrop/Backdrop'
 
 const modal = memo(
   (props) => {
+    const mounted = useRef()
+    useEffect(() => {
+      if (!mounted.current) {
+        mounted.current = true
+      } else {
+        console.log('[Modal] Updated')
+      }
+    })
+
     return (
       <Aux>
         <Backdrop show={props.show} clicked={props.modalClosed} />
