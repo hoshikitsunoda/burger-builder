@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import classes from './Modal.css'
 import Aux from '../../../hoc/Aux'
@@ -18,5 +19,11 @@ const modal = (props) => (
     </div>
   </Aux>
 )
+
+modal.propTypes = {
+  show: PropTypes.bool,
+  modalClosed: PropTypes.func,
+  children: PropTypes.element,
+}
 
 export default modal
