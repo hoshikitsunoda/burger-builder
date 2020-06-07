@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
 
 import Aux from '../../../hoc/Aux/Aux'
 import Button from '../../UI/Button/Button'
@@ -26,11 +25,9 @@ const orderSummary = (props) => {
       <Button btnType="Danger" clicked={props.purchaseCancelled}>
         CANCEL
       </Button>
-      <NavLink to="/checkout">
-        <Button btnType="Success" clicked={props.purchaseContinued}>
-          CONTINUE
-        </Button>
-      </NavLink>
+      <Button btnType="Success" clicked={props.purchaseContinued}>
+        CONTINUE
+      </Button>
     </Aux>
   )
 }
