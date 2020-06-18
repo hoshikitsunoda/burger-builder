@@ -24,4 +24,19 @@ describe('<NavigationItems />', () => {
     wrapper.setProps({ isAuthenticated: true })
     expect(wrapper.find(NavigationItem)).toHaveLength(3)
   })
+
+  it('should render a <NavigationItem /> elements with logout link', () => {
+    wrapper.setProps({ isAuthenticated: true })
+    expect(
+      wrapper.contains(<NavigationItem link="/logout">Logout</NavigationItem>)
+    ).toEqual(true)
+  })
+
+  it('should render a <NavigationItem /> with exact prop as a first child', () => {
+    expect(wrapper.find(NavigationItem).at(0).props()).toEqual({
+      link: '/',
+      exact: true,
+      children: 'Burger Builder',
+    })
+  })
 })
