@@ -19,7 +19,7 @@ const AsyncOrders = asyncComponent(() => import('./containers/Orders/Orders'))
 const App = (props) => {
   useEffect(() => {
     props.onTryAutoSignup()
-  })
+  }, [])
 
   let routes = (
     <Switch>
