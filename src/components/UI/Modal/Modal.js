@@ -5,7 +5,7 @@ import classes from './Modal.css'
 import Aux from '../../../hoc/Aux/Aux'
 import Backdrop from '../Backdrop/Backdrop'
 
-const modal = React.memo((props) => {
+const modal = (props) => {
   return (
     <Aux>
       <Backdrop show={props.show} clicked={props.modalClosed} />
@@ -20,7 +20,7 @@ const modal = React.memo((props) => {
       </div>
     </Aux>
   )
-})
+}
 
 modal.propTypes = {
   show: PropTypes.bool,
@@ -28,4 +28,9 @@ modal.propTypes = {
   children: PropTypes.element,
 }
 
-export default modal
+export default React.memo(
+  modal,
+  (prevProps, nextProps) =>
+    nextProps.show === prevProps.show &&
+    nextProps.children === prevProps.children
+)
