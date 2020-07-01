@@ -10,7 +10,7 @@ import * as actions from '../../store/actions/index'
 import { updateObject, checkValidity } from '../../shared/utility'
 
 const auth = (props) => {
-  const controlsState = {
+  const controls = {
     email: {
       elementType: 'input',
       elementConfig: {
@@ -40,7 +40,7 @@ const auth = (props) => {
       touched: false,
     },
   }
-  const [controls, setControls] = useState(controlsState)
+  const [authForm, setAuthForm] = useState(controls)
   const [isSignup, setIsSignup] = useState(true)
 
   useEffect(() => {
@@ -50,22 +50,22 @@ const auth = (props) => {
   }, [])
 
   const inputChangedHandler = (event, controlName) => {
-    const updatedControls = updateObject(controls, {
-      [controlName]: updateObject(controls[controlName], {
+    const updatedControls = updateObject(authForm, {
+      [controlName]: updateObject(authForm[controlName], {
         value: event.target.value,
         valid: checkValidity(
           event.target.value,
-          controls[controlName].validation
+          authForm[controlName].validation
         ),
         touched: true,
       }),
     })
-    setControls(updatedControls)
+    setAuthForm(updatedControls)
   }
 
   const submitHandler = (event) => {
     event.preventDefault()
-    props.onAuth(controls.email.value, controls.password.value, isSignup)
+    props.onAuth(authForm.email.value, authForm.password.value, isSignup)
   }
 
   const switchAuthModeHandler = () => {
@@ -73,10 +73,10 @@ const auth = (props) => {
   }
 
   const formElementsArray = []
-  for (let key in controls) {
+  for (let key in authForm) {
     formElementsArray.push({
       id: key,
-      config: controls[key],
+      config: authForm[key],
     })
   }
 
