@@ -14,7 +14,6 @@ const checkout = (props) => {
     props.history.replace('/checkout/contact-data')
   }
 
-  // render() {
   let summary = <Redirect to="/" />
   if (props.ings) {
     const purchasedRedirect = props.purchased ? <Redirect to="/" /> : null
@@ -35,7 +34,6 @@ const checkout = (props) => {
     )
   }
   return summary
-  // }
 }
 
 const mapStateToProps = (state) => {

@@ -12,11 +12,7 @@ const orders = (props) => {
   useEffect(() => {
     props.onFetchOrders(props.token, props.userId)
   }, [])
-  // componentDidMount() {
-  //   this.props.onFetchOrders(this.props.token, this.props.userId)
-  // }
 
-  // render() {
   let orders = <Spinner />
   if (!props.loading) {
     orders = props.orders.map((order) => (
@@ -28,7 +24,6 @@ const orders = (props) => {
     ))
   }
   return <div>{orders}</div>
-  // }
 }
 
 const mapStateToProps = (state) => {
